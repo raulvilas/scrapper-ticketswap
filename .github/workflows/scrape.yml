@@ -24,6 +24,9 @@ jobs:
     - name: Install Puppeteer
       run: npm install puppeteer
 
+    - name: List repository files (debug)
+      run: ls -R
+
     # Step 4: Run the script
     - name: Run Script to Scrape Data
       run: node ../../ticketswap_scraper.js
