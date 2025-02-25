@@ -1,0 +1,15 @@
+{
+  "dependencies": {
+    "puppeteer": "^24.3.0"
+  },
+  "name": "scrapper-ticketswap",
+  "version": "1.0.0",
+  "description": "This is the github action that take the list op top events of ticketswap",
+  "main": "scraper.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

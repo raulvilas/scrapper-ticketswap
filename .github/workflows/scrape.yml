@@ -1,0 +1,38 @@
+name: Weekly TicketSwap Data Extraction
+
+on:
+  schedule:
+    - cron: '0 9 * * 1'  # Runs every Monday at 9 AM UTC
+  workflow_dispatch:  # Allows manual triggering
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+
+    steps:
+    # Step 1: Checkout the repository
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    # Step 2: Set up Node.js
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '14'
+
+    # Step 3: Install dependencies
+    - name: Install Puppeteer
+      run: npm install puppeteer
+
+    # Step 4: Run the script
+    - name: Run Script to Scrape Data
+      run: node ticketswap_scraper.js
+
+    # Step 5: Commit and push the results back (optional)
+    - name: Commit and push scraped data
+      uses: EndBug/add-and-commit@v7
+      with:
+        author_name: 'GitHub Actions'
+        author_email: 'actions@github.com'
+        message: 'Add weekly scraped data'
+        add: 'ticketswap_data.json'
