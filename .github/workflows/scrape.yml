@@ -26,7 +26,7 @@ jobs:
 
     # Step 4: Run the script
     - name: Run Script to Scrape Data
-      run: node ticketswap_scraper.js
+      run: node ../../ticketswap_scraper.js
 
     # Step 5: Commit and push the results back (optional)
     - name: Commit and push scraped data
